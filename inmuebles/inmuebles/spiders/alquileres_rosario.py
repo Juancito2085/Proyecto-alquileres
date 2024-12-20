@@ -25,8 +25,14 @@ class AlquileresRosarioSpider(scrapy.Spider):
     #        yield response.follow(url_pagina_siguiente, callback=self.parse)
 
     def pag_inmueble_parse(self, response):
-        
+        texto_expensas = response.css('p.titlebar__expenses::text').get()
+        if texto_expensas:
+            expensas = texto_expensas.split()[1]
+        else:
+            expensas = 'No tiene'
         yield {
             'precio':response.css('p.titlebar__price::text').get().replace('\n','').strip(),
-
+            'expensas':expensas,
+            'direccion':response.css('h2.titlebar__address::text').get()
+            latitud
         }

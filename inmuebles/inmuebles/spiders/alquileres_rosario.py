@@ -34,9 +34,15 @@ class AlquileresRosarioSpider(scrapy.Spider):
             'precio':response.css('p.titlebar__price::text').get().replace('\n','').strip(),
             'expensas':expensas,
             'direccion':response.css('h2.titlebar__address::text').get(),
-            'laitud':response.css('[data-latitude]::attr(data-latitude)').get(),
+            'latitud':response.css('[data-latitude]::attr(data-latitude)').get(),
             'longitud':response.css('[data-longitude]::attr(data-longitude)').get(),
-            # 'ambientes':
-            # 'dormitorios':
-            
+            'ambientes':response.css('li[title="Ambientes"] p::text').get().split()[0],
+            'dormitorios':response.css('li[title="Dormitorios"] p::text').get().split()[0],
+            'baños':response.css('li[title="Baños"] p::text').get().split()[0],
+            'superficie cubierta':response.css('li[title="Sup. cubierta"] p::text').get().split()[0],
+            'antiguedad':response.css('li[title="Antiguedad"] p::text').get(),
+            'orientacion':response.css('li[title="Orientación"] p::text').get(),
+            'estado':response.css('li[title="Estado"] p::text').get(),
+            'disposicion':response.css('li[title="Disposición"] p::text').get(),
+            # 'tipo':
         }

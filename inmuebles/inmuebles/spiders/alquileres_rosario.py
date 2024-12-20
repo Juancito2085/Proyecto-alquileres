@@ -44,5 +44,5 @@ class AlquileresRosarioSpider(scrapy.Spider):
             'orientacion':response.css('li[title="Orientación"] p::text').get(),
             'estado':response.css('li[title="Estado"] p::text').get(),
             'disposicion':response.css('li[title="Disposición"] p::text').get(),
-            # 'tipo':
+            'tipo':response.css('ul.property-main-features li:first-child p::text').get()
         }

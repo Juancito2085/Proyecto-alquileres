@@ -16,13 +16,13 @@ class AlquileresRosarioSpider(scrapy.Spider):
             url_inmueble = 'https://www.argenprop.com' + url_relativa
             print(url_inmueble)
             yield response.follow(url_inmueble, callback=self.pag_inmueble_parse)
-#        pagina_siguiente = response.css('[rel="next"]::attr(href)').get()
+        pagina_siguiente = response.css('[rel="next"]::attr(href)').get()
         
- #       if pagina_siguiente:
+        if pagina_siguiente:
             
-  #          url_pagina_siguiente = "https://www.argenprop.com" + pagina_siguiente
-   #         print(url_pagina_siguiente)
-    #        yield response.follow(url_pagina_siguiente, callback=self.parse)
+            url_pagina_siguiente = "https://www.argenprop.com" + pagina_siguiente
+            print(url_pagina_siguiente)
+            yield response.follow(url_pagina_siguiente, callback=self.parse)
 
     def pag_inmueble_parse(self, response):
         texto_expensas = response.css('p.titlebar__expenses::text').get()

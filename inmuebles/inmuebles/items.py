@@ -6,7 +6,19 @@
 import scrapy
 
 
-class InmueblesItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class InmueblesCaracteristicas(scrapy.Item):
+    precio = scrapy.Field()
+    expensas = scrapy.Field()
+    direccion = scrapy.Field()
+    latitud = scrapy.Field()
+    longitud = scrapy.Field()
+    ambientes = scrapy.Field()
+    dormitorios = scrapy.Field()
+    baños = scrapy.Field()
+    superficie_cubierta = scrapy.Field()
+    antiguedad = scrapy.Field()
+    orientacion = scrapy.Field()
+    estado = scrapy.Field()
+    disposicion = scrapy.Field()
+    tipo = scrapy.Field()
+
